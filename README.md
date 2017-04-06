@@ -11,4 +11,6 @@ c:\nginx\html\angularjs>typings search angular    <br>
 
 现在我们angularjs目录下新建了一个1的文件夹和js的文件夹
 
+1.文件的基本结构
+ng-app ng-controller
 
