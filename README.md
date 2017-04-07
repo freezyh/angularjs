@@ -11,14 +11,16 @@ c:\nginx\html\angularjs>typings search angular    <br>
 
 现在我们angularjs目录下新建了一个1的文件夹和js的文件夹
 
-1. 文件的基本结构
- 1. ng-app ng-controller
- 2. 数据绑定
- 3. 双向数据绑定 ng-bind ng-model
- 4. 表达式 ng-click
- 5. ng-cloak 
- 6. 表单提交
- 7. ng-value
- 8. radio ng-value ng-show
- 9. checkbox ng-true-value ng-false-value
+### 1. 基本指令的用法
+ #### 1. ng-app ng-controller
+ #### 2. 数据绑定
+ #### 3. 双向数据绑定 ng-bind ng-model
+ #### 4. 表达式 ng-click
+ #### 5. ng-cloak 
+ #### 6. 表单提交
+ #### 7. ng-value
+ #### 8. radio ng-value ng-show
+ ####9. checkbox ng-true-value ng-false-value
+
+### 2. 
  
