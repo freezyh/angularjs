@@ -20,7 +20,7 @@ c:\nginx\html\angularjs>typings search angular    <br>
  #### 6. 表单提交
  #### 7. ng-value
  #### 8. radio ng-value ng-show
- ####9. checkbox ng-true-value ng-false-value
+ #### 9. checkbox ng-true-value ng-false-value
 
 ### 2. 
  
