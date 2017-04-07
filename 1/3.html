@@ -8,13 +8,16 @@
 </head>
 <body ng-app="app">
      <div ng-controller="ctrl">
-         
+        <h1>{{ name }}</h1>
+        <h2 ng-bind="name"></h2>
+        <input type="text" ng-model="name">
      </div>
 </body>
 <script>
     var app = angular.module('app', []);
     app.controller('ctrl', ['$scope', function ($scope) {
-        
+        //name的默认值为zhongyuanhui
+        $scope.name = "zhongyuanhui"
     }]);
 </script>
 </html>

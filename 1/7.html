@@ -8,13 +8,16 @@
 </head>
 <body ng-app="app">
      <div ng-controller="ctrl">
-         
+        商品: <input type="text" ng-model="goods.title"><br/>
+        价格: <input type="text" ng-model="goods.price" readonly="readonly"><br/>
+        数量: <input type="text" ng-model="goods.num"><br/>
+        总价: <input type="text" ng-value="goods.price*goods.num" readonly="readonly">
      </div>
 </body>
 <script>
     var app = angular.module('app', []);
     app.controller('ctrl', ['$scope', function ($scope) {
-        
+        $scope.goods = {title: '苹果', 'price': 8, 'num': 2};
     }]);
 </script>
 </html>

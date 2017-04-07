@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Examples</title>
+    <script src="../js/angular.min.js"></script>
+</head>
+<body ng-app="app">
+     <div ng-controller="ctrl">
+        商品名称:{{ goods.data.title }} <br/>
+        价格:{{ goods.data.price }}<br/>
+        购买数量: {{ goods.data.num }} 斤<br/>
+        总计:{{ goods.data.price*goods.data.num }} 元<br/>
+        <button ng-click="goods.add()">增加</button>
+        <button ng-click="goods.reduce()">减少</button>
+     </div>
+</body>
+<script>
+    var app = angular.module('app', []);
+    app.controller('ctrl', ['$scope', function ($scope) {
+        $scope.goods = {
+            data: {'title': '苹果', 'price': 10, 'num': 0},
+            add: function () {
+                $scope.goods.data.num = Math.min(++$scope.goods.data.num, 6);
+            },
+            reduce: function () {
+                $scope.goods.data.num = Math.max(--$scope.goods.data.num, 0);
+            }
+        }
+    }]);
+</script>
+</html>

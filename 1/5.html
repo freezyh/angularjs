@@ -1,3 +1,4 @@
+         
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,15 +7,21 @@
     <title>Examples</title>
     <script src="../js/angular.min.js"></script>
 </head>
-<body ng-app="app">
+<style>
+    .ng-cloak{
+        display: none;
+    }
+</style>
+<body ng-app="app" ng-cloak class="ng-cloak">
      <div ng-controller="ctrl">
-         
+         <div>{{ num }}</div>
+         <div>{{ num*2 }}</div>
      </div>
 </body>
 <script>
     var app = angular.module('app', []);
     app.controller('ctrl', ['$scope', function ($scope) {
-        
+         $scope.num = 10;
     }]);
 </script>
 </html>
