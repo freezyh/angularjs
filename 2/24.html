@@ -8,15 +8,23 @@
 </head>
 <body ng-app="app">
      <div ng-controller="ctrl">
-        
+        <h1 hello my-color="callback()"></h1>
      </div>
 </body>
 <script>
     var app = angular.module('app', []);
     app.controller('ctrl', ['$scope', function ($scope) {
-         
-        
+        $scope.callback = function () {
+            return 'angular ..';
+        }
     }]);
-    
+    app.directive('hello', [function () {
+        return {
+            restrict: 'AEC', 
+            template: '<h3>{{color()}}</h3>',
+            scope: {color: '&myColor'}
+        }
+    }]);
+
 </script>
 </html>

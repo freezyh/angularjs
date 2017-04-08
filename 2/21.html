@@ -8,15 +8,24 @@
 </head>
 <body ng-app="app">
      <div ng-controller="ctrl">
-        
+        {{name}} <input type="text" ng-model="name">
+        <hr>
+        <hello></hello>
+        <hr>
+        <hello></hello>
      </div>
 </body>
 <script>
     var app = angular.module('app', []);
     app.controller('ctrl', ['$scope', function ($scope) {
-         
-        
+         $scope.name = "angular";
     }]);
-    
+    app.directive('hello', [function () {
+        return {
+            restrict: 'AEC',
+            template: '{{name}} <input type="text" ng-model="name">',
+            scope: {}
+        }
+    }]);
 </script>
 </html>

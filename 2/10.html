@@ -8,15 +8,20 @@
 </head>
 <body ng-app="app">
      <div ng-controller="ctrl">
-        
+         <span ng-click="show(1)">click</span>
+         <span ng-dblclick="show(2)">dbclick</span>
+         <span ng-mousemove="show(3)">mousemove</span>
+ 
+ 
      </div>
 </body>
 <script>
     var app = angular.module('app', []);
     app.controller('ctrl', ['$scope', function ($scope) {
-         
-        
+        $scope.show = function(index){
+            console.info('console'  + index);
+        }
+ 
     }]);
-    
 </script>
 </html>

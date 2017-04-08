@@ -8,15 +8,22 @@
 </head>
 <body ng-app="app">
      <div ng-controller="ctrl">
-        
+        <input type="text" ng-model="color">
+        <h1 hello my-color="{{color}}"></h1>
      </div>
 </body>
 <script>
     var app = angular.module('app', []);
     app.controller('ctrl', ['$scope', function ($scope) {
-         
-        
+         $scope.name = "angular";
+         $scope.color = "red";
     }]);
-    
+    app.directive('hello', [function () {
+        return {
+            restrict: 'AEC',
+            template: '{{color}}<span style="color:{{color}}">angular</span>',
+            scope: {color:'@myColor'}
+        }
+    }]);
 </script>
 </html>

@@ -22,5 +22,43 @@ c:\nginx\html\angularjs>typings search angular    <br>
  #### 8. radio ng-value ng-show
  #### 9. checkbox ng-true-value ng-false-value
 
-### 2. 
- 
+### 2. 进阶
+ #### 1. ng-options
+ #### 2. ng方法 version uppercase copy extend forEach toJson fromJson isUndefined isNumber isString isObject equals <br>
+ #### 3. ng-disabled
+ #### 4. ng-repeat ng-if
+ #### 5. ng-repeat track by $index
+ #### 6. 单选按钮
+ #### 7. 多选按钮 全选
+ #### 8. input ng-model ng-model-options
+ #### 9. ng-class ng-class-odd ng-class-even
+ #### 10. 基本事件
+ #### 11. 过滤器
+ #### 12. 通过控制器使用过滤器1 $filter
+ #### 13. 通过控制器使用过滤器2 $filter
+ #### 14. 赃检查 $watch 过滤排序
+ #### 15. 自定义过滤器
+ #### 16. 自定义指令1 restrict template
+ #### 17. 自定义指令2 restrict template
+ #### 18. 自定义指令3 replace
+ #### 19. templateUrl
+ #### 20. 多个控制器
+ #### 21. 自定义指令4 scope
+ #### 22. 自定义指令5 scope@
+ #### 23. 自定义指令6 scope=
+ #### 24. 自定义指令5 scope&
+ #### 25. 自定义指令5 templateUrl controller
+ #### 26. $timeout $interval 
+ #### 27. $window
+ #### 28. ng-bind-html $sce trustAsHtml
+ #### 29. $cacheFactory
+ #### 30. $http
+### 3. 路由
+ #### 1. ui-view $urlRouterProvider $stateProvider
+ #### 2. ui-sref
+ #### 3. ui-view templateUrl
+ #### 4. $state
+
+
+
+

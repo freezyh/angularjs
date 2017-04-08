@@ -1,0 +1,10 @@
+{
+    { 
+        name : 'zhong',
+        age : 18
+    },
+    {
+        name : "wang",
+        age : 19
+    }
+}

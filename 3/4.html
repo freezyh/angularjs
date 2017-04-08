@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Examples</title>
+    <script src="../js/angular.min.js"></script>
+    <script src="../js/angular-ui-router.min.js"></script>
+</head>
+<body ng-app="app">
+    <a href="" ui-sref="home">首页</a>
+    <a href="" ui-sref="lists">列表页</a>
+    <div ui-view>提示你:你访问的页面不存在</div>
+</body>
+<script>
+    var app = angular.module('app', ['ui.router']);
+
+    app.config(['$stateProvider','$urlRouterProvider',function($stateProvider,$urlRouterProvider){
+         //默认路由
+        $urlRouterProvider.otherwise('');
+        //定义路由规则
+        $stateProvider
+            .state('default', {
+                url: '',
+                template: '<h1>angular</h1>'
+            })
+            .state('home', {
+                url: '/home2',
+                templateUrl: 'view/home2.html',
+                controller: 'ctrl'
+            })
+            .state('lists', {
+                url: '/lists',
+                template: '<h1>列表页</h1>'
+            })
+    }]);
+    app.controller('ctrl',['$scope','$state',function($scope,$state){
+        $scope.name= 'angular';
+        $scope.data=[
+            {title:'百度'},
+            {title:'腾讯'}
+        ];
+        $scope.go=function(url){
+            $state.go(url);
+        }
+    }])
+
+     
+    
+</script>
+</html>

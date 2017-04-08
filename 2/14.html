@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Examples</title>
+    <script src="../js/angular.min.js"></script>
+</head>
+<body ng-app="app">
+     <div ng-controller="ctrl">
+         <div>标题: <input type="text" ng-model="news.title"> {{error}} </div>
+
+         <div>
+            <div>搜索: <input type="text" ng-model="search"></div>
+            <table border="1" width="600">
+                <tr>
+                    <td>编号</td>
+                    <td>点击数</td>
+                    <td>标题</td>
+                </tr>
+                <tr ng-repeat="(k,v) in lists">
+                    <td>{{v.id}}</td>
+                    <td>{{v.click}}</td>
+                    <td>{{v.title}}</td>
+                </tr>
+            </table>
+         </div>
+     </div>
+</body>
+<script>
+    var app = angular.module('app', []);
+    app.controller('ctrl', ['$scope','$filter', function ($scope,$filter) {
+        $scope.news = {title: ''};
+
+        $scope.data=[
+            {id:1,click:100,title:'百度'},
+            {id:2,click:200,title:'腾讯'},
+            {id:3,click:300,title:'阿里巴巴'},
+        ];
+
+        $scope.$watch('news', function (n, o) {
+            $scope.error = n.title.length>3?'标题长度输入错误':'';
+        }, true);
+
+        //临时数据用于显示
+        $scope.lists = $scope.data;
+        $scope.$watch('search',function(n,o){
+            $scope.lists = $filter('filter')($scope.data,n);
+        });
+
+    }]);
+</script>
+</html>

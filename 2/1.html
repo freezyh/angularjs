@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Examples</title>
+    <script src="../js/angular.min.js"></script>
+</head>
+<body ng-app="app">
+     <div ng-controller="ctrl">
+        <select ng-options="v.value as v.name for v in data" ng-model="city">
+            <option value="">请选择城市</option>
+        </select>
+        {{city}}
+     </div>
+</body>
+<script>
+    var app = angular.module('app', []);
+    app.controller('ctrl', ['$scope', function ($scope) {
+        $scope.city = 'gd';
+        $scope.data = [
+            {name: '广东', value: 'gd'},
+            {name: '江西', value: 'jx'},
+            {name: '湖北', value: 'hb'},
+            {name: '河南', value: 'hn'},
+            {name: '南京', value: 'nj'},
+        ];
+    }]);
+</script>
+</html>

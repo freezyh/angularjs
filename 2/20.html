@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Examples</title>
+    <script src="../js/angular.min.js"></script>
+    <script src="../js/jquery.min.js"></script>
+</head>
+<body ng-app="app">
+    <div ng-controller="ctrl">
+    {{name}}<input type="text" name="username" ng-model="name">
+        <div ng-controller="ctrl1">
+            {{ name }}<input type="text" name="username" ng-model="name">
+        </div>
+        <div ng-controller="ctrl2">
+            {{ name }}<input type="text" name="username" ng-model="name">
+        </div>
+    </div>
+</body>
+<script>
+    var app = angular.module('app', []);
+    app.controller('ctrl', ['$scope', function ($scope) {
+        $scope.name = "Angular"
+    }]);
+    app.controller('ctrl1', ['$scope', function ($scope) {
+        
+    }]);
+    app.controller('ctrl2', ['$scope', function ($scope) {
+         
+    }]);
+    
+</script>
+</html>

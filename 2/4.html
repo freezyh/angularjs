@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Examples</title>
+    <script src="../js/angular.min.js"></script>
+</head>
+<body ng-app="app">
+     <div ng-controller="ctrl">
+         <ul>
+            <!--{{$first}} 第一个  {{$last}} 最后一个  {{$middle}} 中间的 {{$even}}偶数行 {{$odd}} 奇数行-->
+            <li ng-repeat="(k,v) in data" style="{{$odd?'color:red':''}}">
+                姓名:{{v.name}}   年龄:{{v.age}}
+            </li>
+            <hr/>
+            <li ng-repeat="(k,v) in data">
+                <span ng-if="$first" style="{{$first?'color:red':''}}">姓名:{{v.name}}   年龄:{{v.age}}</span>
+                <span ng-if="$middle">姓名:{{v.name}}   年龄:{{v.age}}</span>
+                <span ng-if="$last" style="{{$last?'color:green':''}}">姓名:{{v.name}}   年龄:{{v.age}}</span>
+            </li>
+        </ul>
+     </div>
+</body>
+<script>
+    var app = angular.module('app', []);
+    app.controller('ctrl', ['$scope', function ($scope) {
+        $scope.data = [
+            {name: 'zhong', age: 26},
+            {name: 'zhang', age: 27},
+            {name: 'li', age: 28},
+            {name: 'wang', age: 29},
+            {name: 'liu', age: 30},
+            {name: 'hong', age: 31},
+
+            
+        ];
+    }]);
+</script>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Examples</title>
+    <script src="../js/angular.min.js"></script>
+</head>
+<body ng-app="app">
+     <div ng-controller="ctrl">
+        
+     </div>
+</body>
+<script>
+    var app = angular.module('app', []);
+    app.controller('ctrl', ['$scope','$http', function ($scope,$http) {
+        $http.get('view/1.txt', {  
+            params: {  
+                name: '张三',  
+                age: 'abc'  
+            }  
+        }).then(function (result) {  //正确请求成功时处理  
+            console.info(result);  
+            console.info(result.data);  
+        }).catch(function (result) { //捕捉错误处理  
+            console.info(result);  
+             
+        }); 
+
+        $http.get('view/1.txt', {  
+            params: {  
+                name: '张三',  
+                age: 'abc'  
+            }  
+        }).then(function (result) {  //正确请求成功时处理  
+            console.info(result);  
+            console.info(result.data);  
+        }).catch(function (result) { //捕捉错误处理  
+            console.info(result);  
+             
+        });  
+
+        $http.get('view/1.txt', {  
+            params: {  
+                name: '张三',  
+                age: 'abc'  
+            }  
+        }).then(function (result) {  //正确请求成功时处理  
+            console.info(result);  
+            console.info(result.data);  
+        }).catch(function (result) { //捕捉错误处理  
+            console.info(result);  
+             
+        });   
+    }]);
+    
+</script>
+</html>

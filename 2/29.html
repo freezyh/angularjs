@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Examples</title>
+    <script src="../js/angular.min.js"></script>
+</head>
+<body ng-app="app">
+     <div ng-controller="ctrl1">
+        {{data}}
+     </div>
+     <div ng-controller="ctrl2">
+        {{data}}
+     </div>
+</body>
+<script>
+    var app = angular.module('app', []);
+    app.controller('ctrl1', ['$scope','$cacheFactory', function ($scope,$cacheFactory) {
+        var obj = $cacheFactory('cache');
+        obj.put('bd', {name: '百度', url: 'baidu'});
+        obj.put('tx', {name: '腾讯', mail: 'tenxun'});
+        $scope.data = obj.get('bd').name;
+
+        //删除缓存数据
+        
+        //obj.remove('bd');
+        //obj.removeAll();
+        //obj.destroy();
+        console.log(obj.get('bd'));
+        console.log(obj.get('tx'));
+    }]);
+    app.controller('ctrl2', ['$scope','$cacheFactory', function ($scope,$cacheFactory) {
+        var obj = $cacheFactory.get('cache');
+        $scope.data = obj.get('tx').name;
+        
+    }]);
+    
+</script>
+</html>

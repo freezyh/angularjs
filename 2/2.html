@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Examples</title>
+    <script src="../js/angular.min.js"></script>
+</head>
+<body ng-app="app">
+     <div ng-controller="ctrl">
+         
+     </div>
+</body>
+<script>
+    var app = angular.module('app', []);
+    app.controller('ctrl', ['$scope', function ($scope) {
+        //console.log(angular.version);
+        //console.log(angular.uppercase('zhongyuanhui'));
+        
+        /*
+        var obj = {name: 'zhongyuanhui'};
+        var obj2 = {};
+        angular.copy(obj, obj2);
+        obj2.name = 'zhong';
+        console.log(obj);
+        */
+        
+        /*
+        var obj = {'name': 'zhong'};
+        angular.extend(obj, {age: 26, 'sex': 'man'});
+        console.log(obj);
+        */
+        
+        /*
+        $scope.data = [{name: 'baidu', url: 'baidu.com'}, {name: 'QQ', url: 'imqq.com'}];
+        angular.forEach($scope.data, function (v, k) {
+            v.url = 'www.'+v.url;
+            console.log(v);
+            console.log(k);
+        });
+        */
+        
+        /*
+        $scope.data = {'name': 'zhong', 'age':26};
+        localStorage.setItem('data', angular.toJson($scope.data));
+        console.log(angular.fromJson(localStorage.getItem('data')));
+        */
+        
+        /*
+        var data = angular.fromJson('{"username":"zhong"}');
+        console.log(data);
+        */
+       
+        /*
+        var a;
+        console.log(angular.isUndefined(a));
+        var b=99;
+        console.log(angular.isNumber(b))
+        var c='zhogn';
+        console.log(angular.isString(c))
+
+        var d = {};
+        console.log(angular.isObject(d));
+
+        var e = document.getElementsByTagName('body').item(0);
+        console.log(angular.isElement(e));
+
+        f = {name: 9};
+        g = {name: 9};
+        console.log(angular.equals(f, g));   */
+
+        
+       
+    }]);
+</script>
+</html>

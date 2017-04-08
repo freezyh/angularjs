@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Examples</title>
+    <script src="../js/angular.min.js"></script>
+</head>
+<body ng-app="app">
+     <div ng-controller="ctrl">
+         {{data}}
+        <button ng-click="orderBy()">控制器中使用过滤器</button>
+        <table border="1" width="600">
+            <tr>
+                <td ng-click="orderBys('id')">编号</td>
+                <td ng-click="orderBys('click')">点击数</td>
+                <td ng-click="orderBys('title')">标题</td>
+            </tr>
+            <tr ng-repeat="(k,v) in data">
+                <td>{{v.id}}</td>
+                <td>{{v.click}}</td>
+                <td>{{v.title}}</td>
+            </tr>
+        </table>
+     </div>
+</body>
+<script>
+    var app = angular.module('app', []);
+    app.controller('ctrl', ['$scope','$filter', function ($scope,$filter) {
+        $scope.data=[
+            {id:1,click:100,title:'百度'},
+            {id:2,click:200,title:'腾讯'},
+            {id:3,click:300,title:'阿里巴巴'},
+        ];
+        $scope.flag = true;
+
+        $scope.orderBy=function(){
+            $scope.flag = !$scope.flag;
+            $scope.data = $filter('orderBy')($scope.data,'id',$scope.flag);
+        }
+
+        $scope.orderBys = function (field) {
+            if (arguments.callee[field] == undefined) {
+                arguments.callee[field] = false;
+            }
+            arguments.callee[field] = !arguments.callee[field];
+            $scope.data = $filter('orderBy')($scope.data, field, arguments.callee[field]);
+        }
+    }]);
+</script>
+</html>

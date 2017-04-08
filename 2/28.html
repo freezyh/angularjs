@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Examples</title>
+    <script src="../js/angular.min.js"></script>
+</head>
+<body ng-app="app">
+     <div ng-controller="ctrl">
+        {{data}}
+        <hr>
+        <div ng-bind-html="data"></div>
+        <hr>
+        <div ng-bind-html="title | trustHtml"></div>
+     </div>
+</body>
+<script>
+    var app = angular.module('app', []);
+    app.filter('trustHtml',['$sce',function($sce){
+        return function(data){
+            return $sce.trustAsHtml(data);
+        }
+    }])
+    app.controller('ctrl', ['$scope', '$sce', function ($scope, $sce) {
+        $scope.data = $sce.trustAsHtml('<h1 style="color:red;">angular</h1>');
+        $scope.title = '<h3 style="color:red;">angular</h3>';
+    }]);
+    
+</script>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Examples</title>
+    <script src="../js/angular.min.js"></script>
+</head>
+<body ng-app="app">
+     <div ng-controller="ctrl">
+        <hello></hello>
+     </div>
+</body>
+<script>
+    var app = angular.module('app', []);
+    app.controller('ctrl', ['$scope', function ($scope) {
+         
+    }]);
+    app.directive('hello', [function () {
+        return {
+            restrict: 'E',
+            replace: true,
+            templateUrl: 'view/25.html',
+            controller: ['$scope', function ($scope) {
+                $scope.data = [
+                    {id: 1, name: '百度'},
+                    {id: 2, name: '腾讯'},
+                    {id: 3, name: '阿里'}
+                ];
+            }]
+        }
+    }]);
+
+</script>
+</html>

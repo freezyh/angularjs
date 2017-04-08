@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Examples</title>
+    <script src="../js/angular.min.js"></script>
+</head>
+<body ng-app="app">
+     <div ng-controller="ctrl">
+         <table border="1" width="600">
+            <tr>
+                <td>编号</td>
+                <td>姓名</td>
+                <td>手机号</td>
+            </tr>
+            <tr ng-repeat="(k,v) in data">
+                <td>{{v.id}}</td>
+                <td>{{v.name}}</td>
+                <td>{{v.mobile|truncate:8}}</td>
+            </tr>
+        </table>
+     </div>
+</body>
+<script>
+    var app = angular.module('app', []);
+
+    app.filter('truncate',function(){
+       return function(mobile,len){
+           len = len?len:3;
+           return mobile.substr(0,11-len)+new String('*').repeat(len);
+       }
+    });
+
+    app.controller('ctrl', ['$scope', function ($scope) {
+        $scope.data = [
+            {id: 1, name: '张山', mobile: '13823833828'},
+            {id: 2, name: '李四', mobile: '13833843868'},
+        ];
+    }]);
+</script>
+</html>

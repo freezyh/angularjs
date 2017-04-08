@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Examples</title>
+    <script src="../js/angular.min.js"></script>
+    <style>
+        .red{
+            background: red;
+        }
+        .font{
+            font-size: 100px;
+        }
+        .lock {
+            background : #dcdcdc;
+        }
+    </style>
+</head>
+<body ng-app="app">
+    <div ng-controller="ctrl">
+        <div ng-class="{red:true,font:false}">ng-class</div>
+
+        <table border="1" width="600">
+            <tr>
+                <td>编号</td>
+                <td>姓名</td>
+                <td>年龄</td>
+            </tr>
+            <tr ng-repeat="v in data" ng-class="{lock:v.status==0}">
+                <td>{{v.id}}</td>
+                <td ng-class="{red:v.age>30}">{{v.username}}</td>
+                <td>{{v.age}}</td>
+            </tr>
+        </table>
+
+
+        <table border="1" width="600">
+            <tr>
+                <td>编号</td>
+                <td>姓名</td>
+                <td>年龄</td>
+            </tr>
+            <tr ng-repeat="v in data" ng-class-odd="{green:true}" ng-class-even="{red:true}">
+                <td>{{v.id}}</td>
+                <td>{{v.username}}</td>
+                <td>{{v.age}}</td>
+            </tr>
+        </table>
+
+    </div> 
+</body>
+<script>
+    var app = angular.module('app', []);
+    app.controller('ctrl', ['$scope', function ($scope) {
+        $scope.data = [
+            {id: 1, username: '小明', 'age': 22, status: 0},
+            {id: 2, username: '李四', 'age': 45, status: 0},
+            {id: 3, username: '张三', 'age': 12, status: 1},
+            {id: 4, username: '王五', 'age': 42, status: 0},
+        ];
+    }]);
+</script>
+</html>

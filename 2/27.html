@@ -8,13 +8,15 @@
 </head>
 <body ng-app="app">
      <div ng-controller="ctrl">
-        
+        <div ng-click="prompt()">prompt</div>
      </div>
 </body>
 <script>
     var app = angular.module('app', []);
-    app.controller('ctrl', ['$scope', function ($scope) {
-         
+    app.controller('ctrl', ['$scope','$window', function ($scope,$window) {
+        $scope.prompt=function(){
+            $scope.content = $window.prompt('请输入内容');
+        }
         
     }]);
     

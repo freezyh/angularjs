@@ -8,15 +8,17 @@
 </head>
 <body ng-app="app">
      <div ng-controller="ctrl">
-        
+         <ul>
+            <li ng-repeat="v in data track by $index">
+                {{v + $index}}
+            </li>
+        </ul>
      </div>
 </body>
 <script>
     var app = angular.module('app', []);
     app.controller('ctrl', ['$scope', function ($scope) {
-         
-        
+         $scope.data = ['足球', '篮球', '羽毛球','乒乓球'];
     }]);
-    
 </script>
 </html>

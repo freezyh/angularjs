@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Examples</title>
+    <script src="../js/angular.min.js"></script>
+    <script src="../js/angular-ui-router.min.js"></script>
+</head>
+<body ng-app="app">
+    <div ui-view></div>
+</body>
+<script>
+    var app = angular.module('app', ['ui.router']);
+
+    app.config(['$stateProvider','$urlRouterProvider',function($stateProvider,$urlRouterProvider){
+        //默认路由
+        $urlRouterProvider.otherwise('');
+        //定义路由规则
+        $stateProvider.state('default',{
+            url:'',
+            template:'<h1>angularA</h1>'
+        })
+    }])
+
+     
+    
+</script>
+</html>

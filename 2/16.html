@@ -8,15 +8,21 @@
 </head>
 <body ng-app="app">
      <div ng-controller="ctrl">
-        
+         <hello></hello>
+         <div class="hello"></div>
+         <div hello></div>
      </div>
 </body>
 <script>
     var app = angular.module('app', []);
     app.controller('ctrl', ['$scope', function ($scope) {
-         
         
     }]);
-    
+    app.directive('hello', [function () {
+        return {
+            restrict: 'AEC',//a attr e element  c class
+            template: 'Hello AngularJS'
+        }
+    }]);
 </script>
 </html>
